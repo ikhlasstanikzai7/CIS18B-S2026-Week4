@@ -1,1 +1,5 @@
-TODO: Replace this text with your debugging notes.
+The bug was in the for loop condition. The loop used "i <= alerts.length", which caused the program to try accessing an index that does not exist in the array.
+
+I found the bug by running the program and noticed that it crashed with an ArrayIndexOutOfBoundsException. Then I checked the loop and realized the condition allowed i to reach alerts.length, which is outside the valid range.
+
+I fixed the bug by changing the loop condition from "i <= alerts.length" to "i < alerts.length". This ensures the loop only accesses valid indices.
