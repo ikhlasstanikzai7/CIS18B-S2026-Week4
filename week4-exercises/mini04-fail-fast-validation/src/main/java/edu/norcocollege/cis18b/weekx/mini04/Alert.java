@@ -11,7 +11,15 @@ public class Alert {
         this.level = level;
     }
 
-    public int getId() { return id; }
-    public String getMessage() { return message; }
-    public AlertLevel getLevel() { return level; }
+    public int getId() { 
+        return id; 
+    }
+
+    public String getMessage() { 
+        return message; 
+    }
+
+    public AlertLevel getLevel() { 
+        return level; 
+    }
 }
