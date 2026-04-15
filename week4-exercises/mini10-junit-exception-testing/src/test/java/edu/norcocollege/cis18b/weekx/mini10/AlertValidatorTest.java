@@ -6,13 +6,13 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class AlertValidatorTest {
+
     @Test
     void shouldAcceptValidAlert() {
         AlertValidator validator = new AlertValidator();
         Alert alert = new Alert(1, "CPU critical", AlertLevel.CRITICAL);
 
-        // TODO: Replace null with a lambda that validates the alert.
-        assertDoesNotThrow(null);
+        assertDoesNotThrow(() -> validator.validate(alert));
     }
 
     @Test
@@ -20,8 +20,7 @@ public class AlertValidatorTest {
         AlertValidator validator = new AlertValidator();
         Alert alert = new Alert(1, "   ", AlertLevel.WARNING);
 
-        // TODO: Replace null with a lambda that validates the alert.
-        assertThrows(InvalidAlertException.class, null);
+        assertThrows(InvalidAlertException.class, () -> validator.validate(alert));
     }
 
     @Test
@@ -29,7 +28,6 @@ public class AlertValidatorTest {
         AlertValidator validator = new AlertValidator();
         Alert alert = new Alert(1, "Disk usage high", null);
 
-        // TODO: Replace null with a lambda that validates the alert.
-        assertThrows(InvalidAlertException.class, null);
+        assertThrows(InvalidAlertException.class, () -> validator.validate(alert));
     }
 }
