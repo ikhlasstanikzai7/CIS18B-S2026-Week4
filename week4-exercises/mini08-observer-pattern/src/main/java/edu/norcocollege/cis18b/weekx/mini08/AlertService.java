@@ -4,14 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AlertService {
-    private final List<AlertObserver> observers = new ArrayList<>();
+
+    private List<AlertObserver> observers = new ArrayList<>();
 
     public void addObserver(AlertObserver observer) {
-        // TODO: Add the observer to the list.
+        observers.add(observer);
     }
 
     public void processAlert(Alert alert) {
         System.out.println("Processing alert: " + alert.message());
-        // TODO: Notify all observers.
+
+        for (int i = 0; i < observers.size(); i++) {
+            observers.get(i).onAlert(alert);
+        }
     }
 }
